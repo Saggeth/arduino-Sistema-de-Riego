@@ -1,0 +1,33 @@
+include <LiquidCrystal.h>
+
+LiquidCrystal lcd(7,8,9,10,11,12);
+const int analogInPin = A0;
+
+void setup() {
+  pinMode(6,OUTPUT);
+  digitalWrite(6,LOW);
+  
+  lcd.begin(16,2);
+  lcd.setCursor(0,0);
+  lcd.write("Bienvenido");
+  lcd.setCursor(0,1);
+  lcd.write("Riego 3.0");
+  delay(3000);
+  lcd.clear();
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  lcd.setCursor(0,0);
+  lcd.write("Nivel Agua:");
+  int sensorValue = analogRead(analogInPin); 
+  if(sensorValue<500){
+    lcd.setCursor(0,1);
+    digitalWrite(6,LOW);
+    lcd.write("Bajo  ");
+  } else {
+    lcd.setCursor(0,1);
+    digitalWrite(6,HIGH);
+    lcd.write("Normal");
+  }
+}

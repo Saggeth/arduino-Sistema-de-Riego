@@ -1,0 +1,14 @@
+Electrovalvula 2
+https://www.ebay.com/itm/Mini-Electric-Water-Valve-Open-Closed-DC12-24V-Solenoid-Valve-With-Silicone-Tube/273461740279?hash=item3fab9702f7:m:mp6ZNeSkq5y0wUdwhgtcz1g
+DHT11 2
+https://www.ebay.com/itm/Digital-Temperature-Relative-Humidity-Sensor-DHT11-Module-for-Arduino/282151509959?epid=14010378921&hash=item41b18a5fc7%3Ag%3A050AAOSwV9ha4kYN&fbclid=IwAR0k2tPIS4XwxziACqUw53oEtmrOSCQA_LsT9SsIWRDxMtpD-r4OYlau57M
+step up 2
+https://www.ebay.com/itm/5PCS-MT3608-2A-DC-DC-Step-Up-Power-Apply-Module-Booster-Power-Module-for-Arduino/201206848274?hash=item2ed8dcdb12%3Ag%3Ajc4AAOSwqYZZues3&fbclid=IwAR2dbHDEMF5OtEa11lIBNRpoWLfyW3WF36zxhJNFQ5RXTJjMBG_xfY3no9o
+Modulo Relay 2 
+https://www.ebay.com/itm/5V-1-Channel-Relay-Module-Shield-f-Arduino-Uno-Meage-2560-1280-ARM-PIC-AVR-High/282651288222?epid=8011565576&hash=item41cf54629e:g:knEAAOSwiOdZuOlJ
+Modulo relay 2 
+https://www.ebay.com/itm/12V-1-Channel-Latching-Relay-Module-with-Touch-Bistable-Switch-MCU-Control-UK/192617395102?epid=507359287&hash=item2cd8e4339e:g:DpoAAOSw65FbZR1q
+Sensor de humedad 2
+https://www.ebay.com/itm/2PCS-Soil-Hygrometer-Detection-Module-Soil-Moisture-Sensor-For-arduino-Smart-car/400385860352?hash=item5d38db6300:g:ZisAAOSwkjtbIPQO
+LCD 16x2_ 2
+https://www.ebay.com/itm/NEW-1602-16x2-Character-LCD-Display-Module-HD44780-Controller-Blue-Arduino/272321450094?epid=2120997152&hash=item3f679f906e:g:GqIAAOSwSv1XmH~S

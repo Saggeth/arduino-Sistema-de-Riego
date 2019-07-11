@@ -1,0 +1,120 @@
+#include <LiquidCrystal.h>
+#include <DHT.h>
+#include <SoftwareSerial.h>
+
+#define DHTPIN 5
+#define DHTTYPE DHT11
+
+SoftwareSerial BT(3, 2); // RX, TX
+DHT dht(DHTPIN, DHTTYPE);
+LiquidCrystal lcd(7,8,9,10,11,12);
+const int analogInPin0 = A0;
+int sensorValue=0;
+int sensorHumVal=0;
+int segundo=0,minuto=0,hora=12;
+String hreloj="";
+String th="";
+String BluetoothData;
+
+void setup() {
+  Serial.begin(9600);
+  BT.begin(9600);
+  dht.begin();
+  pinMode(6,OUTPUT);
+  digitalWrite(6,LOW);
+  
+  lcd.begin(16,2);
+  lcd.setCursor(0,0);
+  lcd.print("Bienvenido");
+  lcd.setCursor(0,1);
+  lcd.print("Riego 3.0");
+  delay(3000);
+  lcd.clear();
+  lcd.setCursor(0,0);
+  lcd.print("N:  H:  T:");
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  sensorHumVal= analogRead(analogInPin0);
+  th="";
+  BTList();
+  reloj();
+  
+  if(sensorHumVal>500){
+    //th = th + sensorHumVal;
+    th = th + " H:Seco ";
+  } else {
+    //th = th + sensorHumVal;
+    th = th + " H:Moj. ";
+  }
+  float t=dht.readTemperature();
+  th = th + "T:";
+  th = th + t;
+  th = th + "C";
+  Serial.println(th);
+  lcd.setCursor(0,0);
+  lcd.print(th);
+
+  if(hora==6 && minuto==0 && segundo>0){
+    digitalWrite(6,HIGH);
+  }if(hora==6 && minuto==0 && segundo>20){
+    digitalWrite(6,LOW);
+  }
+
+}
+
+void BTList(){
+  if (BT.available()){
+    BluetoothData=BT.readString();
+    Serial.print("Señal de modulo BT enviada valores: ");
+    Serial.println(BluetoothData);
+  
+    if(BluetoothData.equals("OFF")){
+      digitalWrite(6,LOW);
+    }
+    if(BluetoothData.equals("ON")){
+      digitalWrite(6,HIGH);
+    }
+    if(BluetoothData.length()>4){
+      hora = BluetoothData.substring(0,2).toInt();
+      minuto = BluetoothData.substring(3,5).toInt();
+      segundo = BluetoothData.substring(6,8).toInt();
+    }
+  }
+}
+
+void reloj(){
+  hreloj="";
+  delay(1000);
+  segundo = segundo + 1;
+
+  if(segundo>59){
+    segundo = 0;
+    minuto = minuto + 1;
+    if(minuto>59){
+      minuto = 0;
+      hora = hora + 1;
+      if(hora>12){
+        hora = 1;
+      }
+    }
+  }
+  if(hora<10){
+    hreloj = hreloj + "0";
+  }
+  hreloj = hreloj + hora;
+  hreloj = hreloj + ":";
+  if(minuto<10){
+    hreloj = hreloj + "0";
+  }
+  hreloj = hreloj + minuto;
+  hreloj = hreloj + ":";
+  if(segundo<10){
+    hreloj = hreloj + "0";
+  }
+  hreloj = hreloj + segundo;
+  lcd.setCursor(0,1);
+  lcd.print(hreloj);
+  Serial.println(hreloj);
+}
